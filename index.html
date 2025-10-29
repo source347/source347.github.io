@@ -1,94 +1,463 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" class="dark">
 <head>
-    <title>Source347 - Crypto & Finance Referral Hub</title>
-    <meta name="description" content="A curated list of my trusted crypto and finance referral links: Binance, Grass, Blockscout, and more. Join the Source347 community!">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    </head>
-<body>
+    <title>Source347 Landing Pages</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        /* Default Primary Color (Emerald) */
+        :root {
+            --c-primary-50: 204 250 241;
+            --c-primary-100: 153 246 228;
+            --c-primary-200: 102 246 228; /* Not used in this implementation */
+            --c-primary-400: 52 211 153;
+            --c-primary-500: 16 185 129; /* Base for dark mode button hover */
+            --c-primary-600: 5 150 105;
+            --c-primary-700: 4 120 87;
+        }
 
-    <h1>💎 Source347's Referral Vault 🚀</h1>
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
 
-    <p class="intro-text">
-        Welcome to the Hub! These are the **only** platforms I personally use and recommend for crypto, passive income, and market research. Click a link to snag my exclusive bonus!
-    </p>
-    
-    <div class="referral-list">
-        
-        <div class="referral-item">
-            <div class="title-desc">
-                <h2>Grass <span class="category-label">Passive Income</span></h2>
-                <p>💸 The easiest, set-it-and-forget-it way to earn passive income by sharing unused bandwidth. Low-stress crypto airdrop potential!</p>
-            </div>
-            <a href="/grass" class="action-button">Join Grass & Start Earning!</a>
-        </div>
-        
-        <div class="referral-item">
-            <div class="title-desc">
-                <h2>Binance <span class="category-label">Exchange (Top Tier)</span></h2>
-                <p>📈 My primary, go-to platform for crypto trading, investments, and secure staking. Get a bonus on sign-up!</p>
-            </div>
-            <a href="/binance2025" class="action-button">Sign Up for Trading Bonus</a>
-        </div>
-        
-        <div class="referral-item">
-            <div class="title-desc">
-                <h2>MEXC <span class="category-label">Exchange (Altcoins)</span></h2>
-                <p>🔥 A great exchange for finding new, trending, and low-cap **altcoins** before they hit the majors. High leverage options.</p>
-            </div>
-            <a href="/mexc" class="action-button">Find Your Next 100X Gem</a>
-        </div>
-        
-        <div class="referral-item">
-            <div class="title-desc">
-                <h2>SoSoValue <span class="category-label">Market Research</span></h2>
-                <p>🧠 My essential resource for market analysis, data insights, and reading the crypto landscape like a pro.</p>
-            </div>
-            <a href="/sosovalue" class="action-button">Get Pro Market Data</a>
-        </div>
-        
-        <div class="referral-item">
-            <div class="title-desc">
-                <h2>Pawns <span class="category-label">Passive Income</span></h2>
-                <p>🔗 Another platform for diversified passive earning through bandwidth sharing. Great as a backup or alongside Grass.</p>
-            </div>
-            <a href="/pawns" class="action-button">Start Diversifying Your Income</a>
-        </div>
-        
-        <div class="referral-item">
-            <div class="title-desc">
-                <h2>Blockscout <span class="category-label">Blockchain Tools</span></h2>
-                <p>🛠️ Information and tools related to advanced blockchain explorers. For when you need to dig deep into transactions.</p>
-            </div>
-            <a href="/blockscout" class="action-button">Explore the Blockchain</a>
-        </div>
+        /* Custom utility for primary background color */
+        .bg-primary-50 { background-color: rgb(var(--c-primary-50)); }
+        .bg-primary-500 { background-color: rgb(var(--c-primary-500)); }
 
-        <div style="grid-column: 1 / -1; margin-top: 30px;">
-            <h2 style="color: #4a5568; border-bottom: 1px solid #4a5568; padding-bottom: 5px;">Community & Content</h2>
-        </div>
+        /* Custom utility for primary text color */
+        .text-primary-600 { color: rgb(var(--c-primary-600)); }
+        .dark .text-primary-400 { color: rgb(var(--c-primary-400)); }
 
-        <div class="referral-item" style="border-left: 5px solid #a0aec0;">
-            <div class="title-desc">
-                <h2>Publish0x <span class="category-label">Blogging</span></h2>
-                <p>✍️ My page for crypto blogging and content creation. Read my latest thoughts and get tipped in crypto!</p>
+        /* Custom utility for primary border color */
+        .border-primary-600 { border-color: rgb(var(--c-primary-600)); }
+        .dark .border-primary-400 { border-color: rgb(var(--c-primary-400)); }
+
+        /* Custom utility for button background and hover */
+        .btn-primary {
+            background-color: rgb(var(--c-primary-600));
+            transition: transform 0.1s ease, background-color 0.15s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .btn-primary:hover {
+            background-color: rgb(var(--c-primary-700));
+            transform: translateY(-1px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        .dark .btn-primary {
+            background-color: rgb(var(--c-primary-400));
+            color: #1f2937; /* Dark text for light button in dark mode */
+        }
+        .dark .btn-primary:hover {
+            background-color: rgb(var(--c-primary-500));
+        }
+
+        /* Styling for the game canvas */
+        #gameCanvas {
+            border: 1px solid #e5e7eb;
+            background-color: #ffffff;
+            touch-action: none; /* Prevent scrolling on touch */
+        }
+        .dark #gameCanvas {
+            border-color: #374151;
+            background-color: #1f2937;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-500 min-h-screen flex flex-col items-center">
+
+    <!-- Header and Controls -->
+    <header class="w-full max-w-6xl p-4 sm:p-6 flex flex-col sm:flex-row justify-between items-center bg-white dark:bg-gray-800 shadow-lg rounded-xl mt-4 z-10">
+        <h1 class="text-3xl font-extrabold text-primary-600 dark:text-primary-400 mb-4 sm:mb-0">
+            Source347 Nexus
+        </h1>
+        <div class="flex space-x-4 items-center">
+            <!-- Color Selector Toggle -->
+            <div class="relative group">
+                <button id="color-toggle-btn" class="p-3 rounded-full bg-gray-100 dark:bg-gray-700 hover:ring-2 ring-primary-500 transition-all focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-600 dark:text-gray-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /><circle cx="12" cy="12" r="3" /><path d="M16.5 7.5l-3 3" /><path d="M7.5 7.5l3 3" /></svg>
+                </button>
+                <div id="color-selector" class="absolute right-0 mt-2 w-48 p-2 bg-white dark:bg-gray-700 rounded-lg shadow-xl hidden flex-col space-y-2">
+                    <span class="text-xs font-semibold uppercase text-gray-500 dark:text-gray-400 px-2 pt-1">Primary Color</span>
+                    <div class="grid grid-cols-4 gap-2 p-2">
+                        <button class="w-8 h-8 rounded-full bg-emerald-500 hover:ring-2 ring-emerald-300 transition" onclick="setColor('emerald')"></button>
+                        <button class="w-8 h-8 rounded-full bg-blue-500 hover:ring-2 ring-blue-300 transition" onclick="setColor('blue')"></button>
+                        <button class="w-8 h-8 rounded-full bg-purple-500 hover:ring-2 ring-purple-300 transition" onclick="setColor('purple')"></button>
+                        <button class="w-8 h-8 rounded-full bg-red-500 hover:ring-2 ring-red-300 transition" onclick="setColor('red')"></button>
+                        <button class="w-8 h-8 rounded-full bg-yellow-500 hover:ring-2 ring-yellow-300 transition" onclick="setColor('yellow')"></button>
+                        <button class="w-8 h-8 rounded-full bg-pink-500 hover:ring-2 ring-pink-300 transition" onclick="setColor('pink')"></button>
+                        <button class="w-8 h-8 rounded-full bg-indigo-500 hover:ring-2 ring-indigo-300 transition" onclick="setColor('indigo')"></button>
+                        <button class="w-8 h-8 rounded-full bg-orange-500 hover:ring-2 ring-orange-300 transition" onclick="setColor('orange')"></button>
+                    </div>
+                </div>
             </div>
-            <a href="/publish0x" class="action-button" style="background-color: #a0aec0; color: var(--secondary-color);">Read My Articles</a>
+
+            <!-- Day/Night Toggle -->
+            <button id="theme-toggle-btn" class="p-3 rounded-full bg-gray-100 dark:bg-gray-700 hover:ring-2 ring-primary-500 transition-all focus:outline-none">
+                <svg id="sun-icon" class="w-6 h-6 text-yellow-500 hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                <svg id="moon-icon" class="w-6 h-6 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 20 10.77z"></path></svg>
+            </button>
         </div>
-        
-        <div class="referral-item" style="border-left: 5px solid #a0aec0;">
-            <div class="title-desc">
-                <h2>EasyHits4U <span class="category-label">Promotion</span></h2>
-                <p>📢 Traffic exchange platform I use for basic promotion of my content. A simple way to get eyes on your links.</p>
+    </header>
+
+    <main class="w-full max-w-6xl p-4 sm:p-6 flex flex-col md:flex-row gap-6 mt-6">
+
+        <!-- Column 1: Landing Page Links -->
+        <section class="md:w-3/5">
+            <h2 class="text-2xl font-bold mb-4 border-b pb-2 text-primary-600 dark:text-primary-400 border-gray-200 dark:border-gray-700">
+                Landing Pages (26 Links)
+            </h2>
+            <div id="links-container" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+                <!-- Buttons will be injected here by JavaScript -->
             </div>
-            <a href="/easyhits4u" class="action-button" style="background-color: #a0aec0; color: var(--secondary-color);">See My Promo Page</a>
+        </section>
+
+        <!-- Column 2: JavaScript Game -->
+        <section class="md:w-2/5 flex flex-col">
+            <h2 class="text-2xl font-bold mb-4 border-b pb-2 text-primary-600 dark:text-primary-400 border-gray-200 dark:border-gray-700">
+                Catch the Dot (Game)
+            </h2>
+            <div class="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-lg flex flex-col flex-grow">
+                <p class="mb-2 text-sm text-gray-500 dark:text-gray-400">Click the moving dot as fast as you can. The game speeds up with every hit!</p>
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-lg font-semibold">Score: <span id="game-score" class="text-primary-600 dark:text-primary-400">0</span></span>
+                    <button id="start-game-btn" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full transition duration-150 shadow-md">
+                        Start Game
+                    </button>
+                </div>
+                <canvas id="gameCanvas" width="400" height="300" class="w-full max-h-80 rounded-lg flex-grow"></canvas>
+                <div id="game-message" class="mt-2 text-center text-red-500 font-semibold hidden">Game Over! Score: 0</div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Modal for Messages/Game Over (Replaces alert()) -->
+    <div id="custom-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-2xl max-w-sm w-full text-center">
+            <h3 id="modal-title" class="text-xl font-bold mb-3 text-primary-600 dark:text-primary-400"></h3>
+            <p id="modal-content" class="text-gray-700 dark:text-gray-300 mb-4"></p>
+            <button id="modal-close-btn" class="btn-primary text-white font-bold py-2 px-4 rounded-lg">Close</button>
         </div>
-        
     </div>
 
-    <p class="footer-note">
-        🔒 All links lead to static landing pages hosted by GitHub Pages. Please do your own research (DYOR) before investing.
-    </p>
 
+    <script>
+        // --- 1. Data Setup ---
+        const landingPages = [
+            { name: "CryptoGain", url: "https://source347.github.io/CryptoGain/" },
+            { name: "FireFaucet", url: "https://source347.github.io/firefaucet/" },
+            { name: "Compact", url: "https://source347.github.io/compact/" },
+            { name: "Namso", url: "https://source347.github.io/namso/" },
+            { name: "Extended", url: "https://source347.github.io/extended/" },
+            { name: "Grass", url: "https://source347.github.io/grass/" },
+            { name: "Binance 2025", url: "https://source347.github.io/binance2025/" },
+            { name: "Blockscout", url: "https://source347.github.io/blockscout/" },
+            { name: "Sosovalue", url: "https://source347.github.io/sosovalue/" },
+            { name: "Pawns", url: "https://source347.github.io/pawns/" },
+            { name: "Experimental", url: "https://source347.github.io/experimental/" },
+            { name: "Confluence", url: "https://source347.github.io/confluence/" },
+            { name: "Zenith", url: "https://source347.github.io/zenith/" },
+            { name: "Utility", url: "https://source347.github.io/utility/" },
+            { name: "Hash", url: "https://source347.github.io/hash/" },
+            { name: "CoinPayU", url: "https://source347.github.io/coinpayu/" },
+            { name: "List", url: "https://source347.github.io/list/" },
+            { name: "Mexc", url: "https://source347.github.io/mexc/" },
+            { name: "API", url: "https://source347.github.io/api/" },
+            { name: "Fun", url: "https://source347.github.io/fun/" },
+            { name: "EasyHits4U", url: "https://source347.github.io/easyhits4u/" },
+            { name: "Publish0x", url: "https://source347.github.io/publish0x/" },
+            { name: "Condensed", url: "https://source347.github.io/condensed/" },
+            { name: "CryptoGain Nexus", url: "https://source347.github.io/cryptogain-nexus/" },
+            { name: "Adbtc Gem", url: "https://source347.github.io/adbtc-gem/" },
+            { name: "Adbtc GPT", url: "https://source347.github.io/adbtc-gpt/" }
+        ];
+
+        // --- 2. Utility Functions ---
+
+        /**
+         * Shows a custom modal message (replaces alert()).
+         * @param {string} title - Title of the modal.
+         * @param {string} content - Content of the modal.
+         */
+        function showModal(title, content) {
+            document.getElementById('modal-title').textContent = title;
+            document.getElementById('modal-content').textContent = content;
+            document.getElementById('custom-modal').classList.remove('hidden');
+            document.getElementById('custom-modal').classList.add('flex');
+        }
+
+        /**
+         * Hides the custom modal.
+         */
+        function hideModal() {
+            document.getElementById('custom-modal').classList.add('hidden');
+            document.getElementById('custom-modal').classList.remove('flex');
+        }
+
+        // --- 3. Landing Page Rendering ---
+        function renderLandingPages() {
+            const container = document.getElementById('links-container');
+            container.innerHTML = ''; // Clear existing content
+            landingPages.forEach(page => {
+                const link = document.createElement('a');
+                link.href = page.url;
+                link.target = "_blank"; // Open in new tab
+                link.className = 'btn-primary text-white font-bold py-3 px-4 rounded-xl text-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus:ring-4 ring-primary-500/50';
+                link.textContent = page.name;
+                container.appendChild(link);
+            });
+        }
+
+        // --- 4. Theming (Day/Night & Color) ---
+
+        const colors = {
+            'emerald': { '50': '204 250 241', '400': '52 211 153', '500': '16 185 129', '600': '5 150 105', '700': '4 120 87' },
+            'blue': { '50': '219 234 254', '400': '96 165 250', '500': '59 130 246', '600': '37 99 235', '700': '29 78 216' },
+            'purple': { '50': '237 233 254', '400': '167 139 250', '500': '139 92 246', '600': '109 40 217', '700': '91 33 182' },
+            'red': { '50': '254 226 226', '400': '248 113 113', '500': '239 68 68', '600': '220 38 38', '700': '185 28 28' },
+            'yellow': { '50': '255 251 235', '400': '250 204 21', '500': '245 158 11', '600': '217 119 6', '700': '180 83 9' },
+            'pink': { '50': '253 242 248', '400': '244 114 182', '500': '236 72 153', '600': '219 39 119', '700': '190 24 93' },
+            'indigo': { '50': '238 242 255', '400': '129 140 248', '500': '99 102 241', '600': '79 70 229', '700': '67 56 202' },
+            'orange': { '50': '255 247 237', '400': '251 146 60', '500': '249 115 22', '600': '234 88 12', '700': '194 65 12' },
+        };
+
+        function setColor(colorName) {
+            const root = document.documentElement.style;
+            const colorSet = colors[colorName];
+            
+            root.setProperty('--c-primary-50', colorSet['50']);
+            root.setProperty('--c-primary-400', colorSet['400']);
+            root.setProperty('--c-primary-500', colorSet['500']);
+            root.setProperty('--c-primary-600', colorSet['600']);
+            root.setProperty('--c-primary-700', colorSet['700']);
+            
+            localStorage.setItem('primaryColor', colorName);
+            // Re-render links to apply new button styles/focus rings
+            renderLandingPages();
+            
+            // Re-hide the selector after choosing
+            document.getElementById('color-selector').classList.add('hidden');
+        }
+
+        function initTheme() {
+            // Load Color Preference
+            const savedColor = localStorage.getItem('primaryColor');
+            if (savedColor && colors[savedColor]) {
+                setColor(savedColor);
+            } else {
+                // Default to emerald if no preference
+                setColor('emerald');
+            }
+
+            // Load Theme Preference
+            const isDark = localStorage.getItem('theme') === 'dark' || 
+                           (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+            
+            if (isDark) {
+                document.documentElement.classList.add('dark');
+                document.getElementById('sun-icon').classList.remove('hidden');
+                document.getElementById('moon-icon').classList.add('hidden');
+            } else {
+                document.documentElement.classList.remove('dark');
+                document.getElementById('sun-icon').classList.add('hidden');
+                document.getElementById('moon-icon').classList.remove('hidden');
+            }
+        }
+
+        function toggleTheme() {
+            const isDark = document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            
+            // Toggle icons
+            document.getElementById('sun-icon').classList.toggle('hidden');
+            document.getElementById('moon-icon').classList.toggle('hidden');
+        }
+
+        // --- 5. Simple JavaScript Game: Catch the Dot ---
+
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        const scoreDisplay = document.getElementById('game-score');
+        const messageDisplay = document.getElementById('game-message');
+        const startGameBtn = document.getElementById('start-game-btn');
+        const dotRadius = 15;
+
+        let dot = { x: 0, y: 0, color: 'rgb(var(--c-primary-600))', speed: 1.5, dx: 0, dy: 0 };
+        let score = 0;
+        let gameInterval = null;
+        let isRunning = false;
+        let canvasWidth, canvasHeight;
+
+        function setCanvasDimensions() {
+            const container = canvas.parentElement;
+            canvasWidth = container.clientWidth;
+            // Cap height to prevent overly tall canvas on mobile
+            canvasHeight = Math.min(canvasWidth * 0.75, 300); 
+            canvas.width = canvasWidth;
+            canvas.height = canvasHeight;
+        }
+
+        function resetGame() {
+            score = 0;
+            scoreDisplay.textContent = score;
+            dot.speed = 1.5; // Initial speed
+            messageDisplay.classList.add('hidden');
+            startGameBtn.textContent = 'Start Game';
+            startGameBtn.classList.remove('bg-red-500', 'hover:bg-red-600');
+            startGameBtn.classList.add('bg-green-500', 'hover:bg-green-600');
+        }
+
+        function startGame() {
+            if (isRunning) return;
+            isRunning = true;
+            score = 0;
+            dot.speed = 2; // Start speed
+            messageDisplay.classList.add('hidden');
+            startGameBtn.textContent = 'Game Running...';
+            startGameBtn.classList.remove('bg-green-500', 'hover:bg-green-600');
+            startGameBtn.classList.add('bg-red-500', 'hover:bg-red-600'); // Red for Stop/Running
+
+            setCanvasDimensions();
+            moveDotRandomly();
+            
+            if (gameInterval) clearInterval(gameInterval);
+            gameInterval = setInterval(gameLoop, 1000 / 60); // 60 FPS
+            
+            // Set a timer to end the game after 30 seconds
+            setTimeout(endGame, 30000); // 30 seconds of play
+        }
+
+        function endGame() {
+            if (!isRunning) return;
+            isRunning = false;
+            clearInterval(gameInterval);
+            messageDisplay.textContent = `Game Over! Final Score: ${score}`;
+            messageDisplay.classList.remove('hidden');
+            showModal("Game Over!", `Congratulations, your final score is ${score}!`);
+            resetGame();
+        }
+
+        function moveDotRandomly() {
+            // New random position within boundaries
+            dot.x = dotRadius + Math.random() * (canvasWidth - 2 * dotRadius);
+            dot.y = dotRadius + Math.random() * (canvasHeight - 2 * dotRadius);
+            
+            // New random velocity direction (normalized)
+            const angle = Math.random() * 2 * Math.PI;
+            dot.dx = Math.cos(angle);
+            dot.dy = Math.sin(angle);
+        }
+        
+        function updateDotColor() {
+             // Update dot color based on current primary color for visual theme consistency
+            const rootStyle = getComputedStyle(document.documentElement);
+            dot.color = rootStyle.getPropertyValue('--c-primary-600') ? `rgb(${rootStyle.getPropertyValue('--c-primary-600')})` : '#059669'; // Fallback
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvasWidth, canvasHeight); // Clear canvas
+            
+            updateDotColor();
+            
+            // Draw the dot
+            ctx.beginPath();
+            ctx.arc(dot.x, dot.y, dotRadius, 0, Math.PI * 2);
+            ctx.fillStyle = dot.color;
+            ctx.fill();
+            ctx.closePath();
+        }
+
+        function update() {
+            if (!isRunning) return;
+
+            // Update dot position based on velocity and speed
+            dot.x += dot.dx * dot.speed;
+            dot.y += dot.dy * dot.speed;
+
+            // Boundary collision detection (bounce off edges)
+            if (dot.x + dotRadius > canvasWidth || dot.x - dotRadius < 0) {
+                dot.dx *= -1; // Reverse horizontal direction
+                // Move dot back inside boundary to prevent sticking
+                dot.x = Math.max(dotRadius, Math.min(canvasWidth - dotRadius, dot.x));
+            }
+            if (dot.y + dotRadius > canvasHeight || dot.y - dotRadius < 0) {
+                dot.dy *= -1; // Reverse vertical direction
+                // Move dot back inside boundary to prevent sticking
+                dot.y = Math.max(dotRadius, Math.min(canvasHeight - dotRadius, dot.y));
+            }
+        }
+
+        function gameLoop() {
+            update();
+            draw();
+        }
+
+        function handleClick(event) {
+            if (!isRunning) return;
+
+            // Get click coordinates relative to the canvas
+            const rect = canvas.getBoundingClientRect();
+            const clickX = event.clientX - rect.left;
+            const clickY = event.clientY - rect.top;
+
+            // Calculate distance from click to dot center
+            const distance = Math.sqrt(Math.pow(clickX - dot.x, 2) + Math.pow(clickY - dot.y, 2));
+
+            if (distance < dotRadius) {
+                // Hit!
+                score++;
+                scoreDisplay.textContent = score;
+                dot.speed += 0.2; // Increase speed
+                moveDotRandomly(); // Move to a new random location
+            }
+        }
+
+        // --- 6. Initialization and Event Listeners ---
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initTheme();
+            renderLandingPages();
+            setCanvasDimensions();
+            draw(); // Draw initial, stationary dot
+
+            // Event Listeners
+            document.getElementById('theme-toggle-btn').addEventListener('click', toggleTheme);
+            document.getElementById('color-toggle-btn').addEventListener('click', (e) => {
+                document.getElementById('color-selector').classList.toggle('hidden');
+                e.stopPropagation(); // Prevent immediate closing
+            });
+            document.addEventListener('click', (e) => {
+                // Close color selector if click is outside
+                if (!document.getElementById('color-selector').contains(e.target) && e.target.id !== 'color-toggle-btn') {
+                    document.getElementById('color-selector').classList.add('hidden');
+                }
+            });
+            document.getElementById('modal-close-btn').addEventListener('click', hideModal);
+
+            // Game Event Listeners
+            startGameBtn.addEventListener('click', startGame);
+            canvas.addEventListener('click', handleClick);
+            
+            window.addEventListener('resize', () => {
+                setCanvasDimensions();
+                if (isRunning) {
+                     // If game is running, slightly adjust dot position to stay in bounds
+                    dot.x = Math.max(dotRadius, Math.min(canvasWidth - dotRadius, dot.x));
+                    dot.y = Math.max(dotRadius, Math.min(canvasHeight - dotRadius, dot.y));
+                }
+                draw();
+            });
+            
+            // Initial call to ensure the canvas is drawn correctly on load
+            setCanvasDimensions();
+            draw();
+        });
+
+    </script>
 </body>
 </html>
