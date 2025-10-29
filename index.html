@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Source347 Landing Pages</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Inter Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN --><script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter Font --><link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <style>
         /* Default Primary Color (Emerald) */
         :root {
@@ -61,23 +59,51 @@
             border: 1px solid #e5e7eb;
             background-color: #ffffff;
             touch-action: none; /* Prevent scrolling on touch */
+            cursor: crosshair;
         }
         .dark #gameCanvas {
             border-color: #374151;
             background-color: #1f2937;
         }
+        
+        /* Spaceship styling (example) */
+        .spaceship {
+            width: 30px;
+            height: 30px;
+            background-color: rgb(var(--c-primary-600)); /* Primary color for spaceship */
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%); /* Triangle shape */
+        }
+
+        /* Asteroid styling (example) */
+        .asteroid {
+            width: 20px;
+            height: 20px;
+            background-color: #a0a0a0;
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        /* Bullet styling (example) */
+        .bullet {
+            width: 4px;
+            height: 10px;
+            background-color: yellow;
+            position: absolute;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-500 min-h-screen flex flex-col items-center">
 
-    <!-- Header and Controls -->
-    <header class="w-full max-w-6xl p-4 sm:p-6 flex flex-col sm:flex-row justify-between items-center bg-white dark:bg-gray-800 shadow-lg rounded-xl mt-4 z-10">
+    <!-- Header and Controls --><header class="w-full max-w-6xl p-4 sm:p-6 flex flex-col sm:flex-row justify-between items-center bg-white dark:bg-gray-800 shadow-lg rounded-xl mt-4 z-10">
         <h1 class="text-3xl font-extrabold text-primary-600 dark:text-primary-400 mb-4 sm:mb-0">
             Source347 Nexus
         </h1>
         <div class="flex space-x-4 items-center">
-            <!-- Color Selector Toggle -->
-            <div class="relative group">
+            <!-- Color Selector Toggle --><div class="relative group">
                 <button id="color-toggle-btn" class="p-3 rounded-full bg-gray-100 dark:bg-gray-700 hover:ring-2 ring-primary-500 transition-all focus:outline-none">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-600 dark:text-gray-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /><circle cx="12" cy="12" r="3" /><path d="M16.5 7.5l-3 3" /><path d="M7.5 7.5l3 3" /></svg>
                 </button>
@@ -96,8 +122,7 @@
                 </div>
             </div>
 
-            <!-- Day/Night Toggle -->
-            <button id="theme-toggle-btn" class="p-3 rounded-full bg-gray-100 dark:bg-gray-700 hover:ring-2 ring-primary-500 transition-all focus:outline-none">
+            <!-- Day/Night Toggle --><button id="theme-toggle-btn" class="p-3 rounded-full bg-gray-100 dark:bg-gray-700 hover:ring-2 ring-primary-500 transition-all focus:outline-none">
                 <svg id="sun-icon" class="w-6 h-6 text-yellow-500 hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
                 <svg id="moon-icon" class="w-6 h-6 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 20 10.77z"></path></svg>
             </button>
@@ -106,23 +131,22 @@
 
     <main class="w-full max-w-6xl p-4 sm:p-6 flex flex-col md:flex-row gap-6 mt-6">
 
-        <!-- Column 1: Landing Page Links -->
-        <section class="md:w-3/5">
+        <!-- Column 1: Landing Page Links --><section class="md:w-3/5">
             <h2 class="text-2xl font-bold mb-4 border-b pb-2 text-primary-600 dark:text-primary-400 border-gray-200 dark:border-gray-700">
                 Landing Pages (26 Links)
             </h2>
             <div id="links-container" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-                <!-- Buttons will be injected here by JavaScript -->
-            </div>
+                <!-- Buttons will be injected here by JavaScript --></div>
         </section>
 
-        <!-- Column 2: JavaScript Game -->
-        <section class="md:w-2/5 flex flex-col">
+        <!-- Column 2: JavaScript Game --><section class="md:w-2/5 flex flex-col">
             <h2 class="text-2xl font-bold mb-4 border-b pb-2 text-primary-600 dark:text-primary-400 border-gray-200 dark:border-gray-700">
-                Catch the Dot (Game)
+                Space Shooter
             </h2>
-            <div class="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-lg flex flex-col flex-grow">
-                <p class="mb-2 text-sm text-gray-500 dark:text-gray-400">Click the moving dot as fast as you can. The game speeds up with every hit!</p>
+            <div class="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-lg flex flex-col flex-grow relative overflow-hidden">
+                <p class="mb-2 text-sm text-gray-500 dark:text-gray-400">
+                    Use <span class="font-bold">A/D</span> or <span class="font-bold">Left/Right arrows</span> to move, <span class="font-bold">Spacebar</span> to shoot. Avoid asteroids!
+                </p>
                 <div class="flex justify-between items-center mb-4">
                     <span class="text-lg font-semibold">Score: <span id="game-score" class="text-primary-600 dark:text-primary-400">0</span></span>
                     <button id="start-game-btn" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full transition duration-150 shadow-md">
@@ -130,14 +154,13 @@
                     </button>
                 </div>
                 <canvas id="gameCanvas" width="400" height="300" class="w-full max-h-80 rounded-lg flex-grow"></canvas>
-                <div id="game-message" class="mt-2 text-center text-red-500 font-semibold hidden">Game Over! Score: 0</div>
+                <div id="game-message" class="mt-2 text-center text-red-500 font-semibold hidden"></div>
             </div>
         </section>
 
     </main>
 
-    <!-- Modal for Messages/Game Over (Replaces alert()) -->
-    <div id="custom-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+    <!-- Modal for Messages/Game Over (Replaces alert()) --><div id="custom-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
         <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-2xl max-w-sm w-full text-center">
             <h3 id="modal-title" class="text-xl font-bold mb-3 text-primary-600 dark:text-primary-400"></h3>
             <p id="modal-content" class="text-gray-700 dark:text-gray-300 mb-4"></p>
@@ -242,6 +265,11 @@
             
             // Re-hide the selector after choosing
             document.getElementById('color-selector').classList.add('hidden');
+
+            // Update game elements if game is active or to set initial colors
+            if (window.game && window.game.updateThemeColors) {
+                window.game.updateThemeColors();
+            }
         }
 
         function initTheme() {
@@ -276,36 +304,71 @@
             // Toggle icons
             document.getElementById('sun-icon').classList.toggle('hidden');
             document.getElementById('moon-icon').classList.toggle('hidden');
+
+            // Update game elements if game is active
+            if (window.game && window.game.updateThemeColors) {
+                window.game.updateThemeColors();
+            }
         }
 
-        // --- 5. Simple JavaScript Game: Catch the Dot ---
+        // --- 5. Space Shooter Game ---
 
         const canvas = document.getElementById('gameCanvas');
         const ctx = canvas.getContext('2d');
         const scoreDisplay = document.getElementById('game-score');
         const messageDisplay = document.getElementById('game-message');
         const startGameBtn = document.getElementById('start-game-btn');
-        const dotRadius = 15;
 
-        let dot = { x: 0, y: 0, color: 'rgb(var(--c-primary-600))', speed: 1.5, dx: 0, dy: 0 };
+        let player = {
+            x: 0, y: 0, width: 30, height: 30, speed: 5,
+            color: 'rgb(var(--c-primary-600))'
+        };
+        let bullets = [];
+        let asteroids = [];
         let score = 0;
+        let gameFrame = 0;
+        let asteroidSpawnRate = 60; // Spawn every X frames
         let gameInterval = null;
         let isRunning = false;
+        let keys = {};
         let canvasWidth, canvasHeight;
+        let lastBulletTime = 0;
+        const fireRate = 200; // milliseconds between shots
+        const maxAsteroids = 10;
+        let currentAsteroidSpeed = 1;
+
+        // Function to get computed primary color for game elements
+        function getPrimaryColor() {
+            const rootStyle = getComputedStyle(document.documentElement);
+            return rootStyle.getPropertyValue('--c-primary-600') ? `rgb(${rootStyle.getPropertyValue('--c-primary-600')})` : '#059669'; // Fallback
+        }
+
+        function updateThemeColors() {
+            player.color = getPrimaryColor();
+            // Asteroids and bullets use fixed colors, but if we wanted to change them, we would do it here.
+            // Example:
+            // bullets.forEach(bullet => bullet.color = 'yellow');
+        }
 
         function setCanvasDimensions() {
             const container = canvas.parentElement;
             canvasWidth = container.clientWidth;
-            // Cap height to prevent overly tall canvas on mobile
-            canvasHeight = Math.min(canvasWidth * 0.75, 300); 
+            canvasHeight = Math.min(canvasWidth * 0.75, 300); // Cap height
             canvas.width = canvasWidth;
             canvas.height = canvasHeight;
+
+            player.x = canvasWidth / 2 - player.width / 2;
+            player.y = canvasHeight - player.height - 10;
         }
 
         function resetGame() {
             score = 0;
             scoreDisplay.textContent = score;
-            dot.speed = 1.5; // Initial speed
+            bullets = [];
+            asteroids = [];
+            gameFrame = 0;
+            asteroidSpawnRate = 60;
+            currentAsteroidSpeed = 1;
             messageDisplay.classList.add('hidden');
             startGameBtn.textContent = 'Start Game';
             startGameBtn.classList.remove('bg-red-500', 'hover:bg-red-600');
@@ -315,21 +378,16 @@
         function startGame() {
             if (isRunning) return;
             isRunning = true;
-            score = 0;
-            dot.speed = 2; // Start speed
-            messageDisplay.classList.add('hidden');
+            resetGame(); // Ensure a clean start
+            setCanvasDimensions(); // Set dimensions and player position
+
             startGameBtn.textContent = 'Game Running...';
             startGameBtn.classList.remove('bg-green-500', 'hover:bg-green-600');
-            startGameBtn.classList.add('bg-red-500', 'hover:bg-red-600'); // Red for Stop/Running
+            startGameBtn.classList.add('bg-red-500', 'hover:bg-red-600');
 
-            setCanvasDimensions();
-            moveDotRandomly();
-            
             if (gameInterval) clearInterval(gameInterval);
             gameInterval = setInterval(gameLoop, 1000 / 60); // 60 FPS
-            
-            // Set a timer to end the game after 30 seconds
-            setTimeout(endGame, 30000); // 30 seconds of play
+            updateThemeColors(); // Apply initial theme colors
         }
 
         function endGame() {
@@ -338,84 +396,164 @@
             clearInterval(gameInterval);
             messageDisplay.textContent = `Game Over! Final Score: ${score}`;
             messageDisplay.classList.remove('hidden');
-            showModal("Game Over!", `Congratulations, your final score is ${score}!`);
+            showModal("Game Over!", `You hit an asteroid! Final Score: ${score}`);
             resetGame();
         }
 
-        function moveDotRandomly() {
-            // New random position within boundaries
-            dot.x = dotRadius + Math.random() * (canvasWidth - 2 * dotRadius);
-            dot.y = dotRadius + Math.random() * (canvasHeight - 2 * dotRadius);
-            
-            // New random velocity direction (normalized)
-            const angle = Math.random() * 2 * Math.PI;
-            dot.dx = Math.cos(angle);
-            dot.dy = Math.sin(angle);
-        }
-        
-        function updateDotColor() {
-             // Update dot color based on current primary color for visual theme consistency
-            const rootStyle = getComputedStyle(document.documentElement);
-            dot.color = rootStyle.getPropertyValue('--c-primary-600') ? `rgb(${rootStyle.getPropertyValue('--c-primary-600')})` : '#059669'; // Fallback
-        }
-
-        function draw() {
-            ctx.clearRect(0, 0, canvasWidth, canvasHeight); // Clear canvas
-            
-            updateDotColor();
-            
-            // Draw the dot
+        function drawPlayer() {
+            ctx.fillStyle = player.color;
             ctx.beginPath();
-            ctx.arc(dot.x, dot.y, dotRadius, 0, Math.PI * 2);
-            ctx.fillStyle = dot.color;
-            ctx.fill();
+            ctx.moveTo(player.x + player.width / 2, player.y);
+            ctx.lineTo(player.x, player.y + player.height);
+            ctx.lineTo(player.x + player.width, player.y + player.height);
             ctx.closePath();
+            ctx.fill();
         }
 
-        function update() {
-            if (!isRunning) return;
+        function drawBullets() {
+            ctx.fillStyle = 'yellow';
+            bullets.forEach(bullet => {
+                ctx.fillRect(bullet.x, bullet.y, bullet.width, bullet.height);
+            });
+        }
 
-            // Update dot position based on velocity and speed
-            dot.x += dot.dx * dot.speed;
-            dot.y += dot.dy * dot.speed;
+        function drawAsteroids() {
+            ctx.fillStyle = '#a0a0a0'; // Grey asteroids
+            asteroids.forEach(asteroid => {
+                ctx.beginPath();
+                ctx.arc(asteroid.x, asteroid.y, asteroid.radius, 0, Math.PI * 2);
+                ctx.fill();
+            });
+        }
 
-            // Boundary collision detection (bounce off edges)
-            if (dot.x + dotRadius > canvasWidth || dot.x - dotRadius < 0) {
-                dot.dx *= -1; // Reverse horizontal direction
-                // Move dot back inside boundary to prevent sticking
-                dot.x = Math.max(dotRadius, Math.min(canvasWidth - dotRadius, dot.x));
+        function updatePlayer() {
+            if (keys['ArrowLeft'] || keys['a']) {
+                player.x -= player.speed;
             }
-            if (dot.y + dotRadius > canvasHeight || dot.y - dotRadius < 0) {
-                dot.dy *= -1; // Reverse vertical direction
-                // Move dot back inside boundary to prevent sticking
-                dot.y = Math.max(dotRadius, Math.min(canvasHeight - dotRadius, dot.y));
+            if (keys['ArrowRight'] || keys['d']) {
+                player.x += player.speed;
+            }
+
+            // Keep player within canvas bounds
+            player.x = Math.max(0, Math.min(canvasWidth - player.width, player.x));
+        }
+
+        function updateBullets() {
+            for (let i = bullets.length - 1; i >= 0; i--) {
+                bullets[i].y -= bullets[i].speed;
+                if (bullets[i].y < 0) {
+                    bullets.splice(i, 1);
+                }
+            }
+        }
+
+        function spawnAsteroid() {
+            if (asteroids.length >= maxAsteroids) return; // Limit asteroids on screen
+
+            const radius = 10 + Math.random() * 15; // Asteroid size
+            const x = radius + Math.random() * (canvasWidth - 2 * radius);
+            asteroids.push({
+                x: x,
+                y: -radius, // Start above canvas
+                radius: radius,
+                speed: currentAsteroidSpeed + Math.random() * 0.5 // Slight speed variation
+            });
+        }
+
+        function updateAsteroids() {
+            for (let i = asteroids.length - 1; i >= 0; i--) {
+                asteroids[i].y += asteroids[i].speed;
+                if (asteroids[i].y - asteroids[i].radius > canvasHeight) {
+                    asteroids.splice(i, 1); // Remove if off-screen
+                }
+            }
+        }
+
+        function checkCollisions() {
+            // Bullet-Asteroid collisions
+            for (let i = bullets.length - 1; i >= 0; i--) {
+                for (let j = asteroids.length - 1; j >= 0; j--) {
+                    const dx = bullets[i].x - asteroids[j].x;
+                    const dy = bullets[i].y - asteroids[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < asteroids[j].radius) {
+                        // Collision!
+                        bullets.splice(i, 1);
+                        asteroids.splice(j, 1);
+                        score += 10;
+                        scoreDisplay.textContent = score;
+                        currentAsteroidSpeed += 0.05; // Game gets harder
+                        asteroidSpawnRate = Math.max(20, asteroidSpawnRate - 1); // Spawn faster, but not too fast
+                        break; // Bullet is gone, move to next bullet
+                    }
+                }
+            }
+
+            // Player-Asteroid collisions
+            for (let i = asteroids.length - 1; i >= 0; i--) {
+                const asteroid = asteroids[i];
+                // Simple collision check for now (player as a rectangle, asteroid as circle)
+                // More complex check for triangle player would be a Polygon-Circle collision
+                // For simplicity, treat player as a rectangle for collision detection.
+                if (player.x < asteroid.x + asteroid.radius &&
+                    player.x + player.width > asteroid.x - asteroid.radius &&
+                    player.y < asteroid.y + asteroid.radius &&
+                    player.y + player.height > asteroid.y - asteroid.radius) {
+                    endGame();
+                    return; // Game over, no need to check further
+                }
             }
         }
 
         function gameLoop() {
-            update();
-            draw();
-        }
-
-        function handleClick(event) {
             if (!isRunning) return;
 
-            // Get click coordinates relative to the canvas
-            const rect = canvas.getBoundingClientRect();
-            const clickX = event.clientX - rect.left;
-            const clickY = event.clientY - rect.top;
+            ctx.clearRect(0, 0, canvasWidth, canvasHeight); // Clear canvas
 
-            // Calculate distance from click to dot center
-            const distance = Math.sqrt(Math.pow(clickX - dot.x, 2) + Math.pow(clickY - dot.y, 2));
+            updatePlayer();
+            updateBullets();
+            updateAsteroids();
+            checkCollisions();
 
-            if (distance < dotRadius) {
-                // Hit!
-                score++;
-                scoreDisplay.textContent = score;
-                dot.speed += 0.2; // Increase speed
-                moveDotRandomly(); // Move to a new random location
+            // Spawn new asteroids
+            gameFrame++;
+            if (gameFrame % asteroidSpawnRate === 0) {
+                spawnAsteroid();
             }
+
+            drawAsteroids();
+            drawBullets();
+            drawPlayer();
         }
+
+        // Keyboard input handling
+        document.addEventListener('keydown', (e) => {
+            keys[e.key] = true;
+            if (isRunning && e.key === ' ') { // Spacebar for shooting
+                e.preventDefault(); // Prevent scrolling
+                const currentTime = Date.now();
+                if (currentTime - lastBulletTime > fireRate) {
+                    bullets.push({
+                        x: player.x + player.width / 2 - 2,
+                        y: player.y,
+                        width: 4,
+                        height: 10,
+                        speed: 7
+                    });
+                    lastBulletTime = currentTime;
+                }
+            }
+        });
+
+        document.addEventListener('keyup', (e) => {
+            keys[e.key] = false;
+        });
+
+        // Expose game functions to window for theme updates
+        window.game = {
+            updateThemeColors: updateThemeColors
+        };
 
         // --- 6. Initialization and Event Listeners ---
 
@@ -423,8 +561,8 @@
             initTheme();
             renderLandingPages();
             setCanvasDimensions();
-            draw(); // Draw initial, stationary dot
-
+            drawPlayer(); // Draw initial player
+            
             // Event Listeners
             document.getElementById('theme-toggle-btn').addEventListener('click', toggleTheme);
             document.getElementById('color-toggle-btn').addEventListener('click', (e) => {
@@ -441,21 +579,18 @@
 
             // Game Event Listeners
             startGameBtn.addEventListener('click', startGame);
-            canvas.addEventListener('click', handleClick);
             
             window.addEventListener('resize', () => {
                 setCanvasDimensions();
-                if (isRunning) {
-                     // If game is running, slightly adjust dot position to stay in bounds
-                    dot.x = Math.max(dotRadius, Math.min(canvasWidth - dotRadius, dot.x));
-                    dot.y = Math.max(dotRadius, Math.min(canvasHeight - dotRadius, dot.y));
+                if (!isRunning) { // Only redraw player if game isn't running to avoid flickering
+                    ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+                    drawPlayer();
                 }
-                draw();
             });
             
             // Initial call to ensure the canvas is drawn correctly on load
             setCanvasDimensions();
-            draw();
+            drawPlayer(); // Draw player in its initial position
         });
 
     </script>
