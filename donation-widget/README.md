@@ -15,7 +15,9 @@ Add this to any page after publishing this directory through GitHub Pages:
     subtitle: 'Choose a network and amount.',
     position: 'bottom-right', // or bottom-left
     theme: 'auto',            // auto, light, dark
-    accentColor: '#6757e8'
+    accentColor: '#6757e8',
+    // Optional: use your own Solana mainnet RPC endpoint
+    solanaRpcUrl: 'https://solana-rpc.publicnode.com'
   });
 </script>
 ```
@@ -24,7 +26,7 @@ Defaults use the recipient addresses supplied for this project:
 - EVM: `0xC948e00B65Edf3a236c3794Aa1b0A4187f22e752`
 - Solana: `5u3AjB3mswr97kB8QeKdRWWajAV9v4wSszAMeN38JUd8`
 
-Per-site customization: `buttonText`, `title`, `subtitle`, `position`, `theme`, `accentColor`, `evmAddress`, `solanaAddress`.
+Per-site customization: `buttonText`, `title`, `subtitle`, `position`, `theme`, `accentColor`, `evmAddress`, `solanaAddress`, `solanaRpcUrl`.
 
 ## Asset policy
 
@@ -46,6 +48,6 @@ Uses injected EIP-1193 EVM wallets and injected Phantom/Solflare-compatible Sola
 2. Independently review token provenance and decimals, especially Binance-Peg and USDT0 assets.
 3. Test each network/token with small-value transfers.
 4. Test mobile browsers and supported wallet extensions.
-5. Consider a dedicated Solana RPC provider before public launch.
+5. Configure a dedicated Solana RPC provider before public launch; the bundled PublicNode endpoint is a public shared endpoint and may be rate-limited.
 
 This repository copy is a review/staging release. Do not advertise it as production-verified until the checklist is complete.
