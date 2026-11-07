@@ -1,0 +1,1 @@
+{"name":"github-pages-donation-widget","version":"1.0.0","private":true,"type":"module","scripts":{"verify:registry":"node scripts/verify-registry.mjs"},"dependencies":{"ethers":"^6.15.0"}}
