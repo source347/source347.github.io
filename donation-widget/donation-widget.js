@@ -21,7 +21,7 @@ const css=`
 function units(v,d){if(!/^(?:0|[1-9]\d*)(?:\.\d+)?$/.test(String(v)))throw Error('Enter a valid positive amount.');const p=String(v).split('.')[1]||'';if(p.length>d)throw Error('Too many decimal places for this asset.');const n=parseUnits(String(v),d);if(n<=0n)throw Error('Amount must be greater than zero.');return n;}
 function solWallet(){return window.phantom?.solana||window.solflare||window.solana||null;}
 export function initDonationWidget(config={}){
- const o={buttonText:'Donate',title:'Support this project',subtitle:'Choose a network and amount.',position:'bottom-right',theme:'auto',accentColor:'#6757e8',evmAddress:EVM_TO,solanaAddress:SOL_TO,...config};
+ const o={buttonText:'Donate',title:'Support this project',subtitle:'Choose a network and amount.',position:'bottom-right',theme:'auto',accentColor:'#6757e8',solanaRpcUrl:'https://solana-rpc.publicnode.com',evmAddress:EVM_TO,solanaAddress:SOL_TO,...config};
  if(!isAddress(o.evmAddress))throw Error('Invalid EVM recipient address.');o.evmAddress=getAddress(o.evmAddress);
  const root=document.createElement('div');root.className='dnw';root.dataset.theme=o.theme==='auto'?(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'):o.theme;root.style.setProperty('--accent',o.accentColor);document.body.append(root);
  const style=document.createElement('style');style.textContent=css;document.head.append(style);
@@ -51,7 +51,7 @@ export function initDonationWidget(config={}){
  async function sendSol(){
   const w=solWallet();if(!w)throw Error('Install Phantom or Solflare to donate on Solana.');
   const [{Connection,PublicKey,Transaction,SystemProgram,LAMPORTS_PER_SOL},{getAssociatedTokenAddress,createAssociatedTokenAccountInstruction,createTransferInstruction,TOKEN_PROGRAM_ID,ASSOCIATED_TOKEN_PROGRAM_ID}]=await Promise.all([import('https://esm.sh/@solana/web3.js@1.98.4'),import('https://esm.sh/@solana/spl-token@0.4.13')]);
-  const c=new Connection('https://api.mainnet-beta.solana.com','confirmed');const response=await w.connect();const payer=new PublicKey(response.publicKey||w.publicKey);const to=new PublicKey(o.solanaAddress);const tx=new Transaction();
+  const c=new Connection(o.solanaRpcUrl,'confirmed');const response=await w.connect();const payer=new PublicKey(response.publicKey||w.publicKey);const to=new PublicKey(o.solanaAddress);const tx=new Transaction();
   if(state.asset==='SOL')tx.add(SystemProgram.transfer({fromPubkey:payer,toPubkey:to,lamports:units(state.amount,9)}));
   else{const mint=new PublicKey(SOLANA_TOKENS[state.asset].mint);const src=await getAssociatedTokenAddress(mint,payer);const dst=await getAssociatedTokenAddress(mint,to);if(!await c.getAccountInfo(dst))tx.add(createAssociatedTokenAccountInstruction(payer,dst,to,mint));tx.add(createTransferInstruction(src,dst,payer,units(state.amount,SOLANA_TOKENS[state.asset].decimals)));}
   tx.feePayer=payer;const bh=await c.getLatestBlockhash('confirmed');tx.recentBlockhash=bh.blockhash;if(typeof w.signTransaction!=='function')throw Error('Wallet does not support transaction signing.');const signed=await w.signTransaction(tx);const sig=await c.sendRawTransaction(signed.serialize());say('Transaction submitted: '+sig,'success');await c.confirmTransaction({signature:sig,...bh},'confirmed');const a=document.createElement('a');a.href='https://explorer.solana.com/tx/'+sig;a.target='_blank';a.rel='noopener noreferrer';a.textContent='View transaction';a.className='dnw-link';q('.dnw-status').append(document.createTextNode(' '),a);
