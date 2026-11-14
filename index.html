@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Source347 — Orbital Archive</title>
     <!-- Tailwind CSS CDN --><script src="https://cdn.tailwindcss.com"></script>
-    <!-- Inter Font --><link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <!-- Interface typography --><link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         /* Default Primary Color (Emerald) */
         :root {
@@ -94,7 +94,6 @@
             background-color: yellow;
             position: absolute;
         }
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 :root{--c-primary-50:244 255 220;--c-primary-100:226 255 173;--c-primary-200:207 250 130;--c-primary-400:190 242 100;--c-primary-500:163 218 70;--c-primary-600:119 164 43;--c-primary-700:84 120 30;--line:#293950;--muted:#8d9bb0;--paper:#e8eef6;--signal:#bef264}
 *{box-sizing:border-box}body{font-family:'Space Grotesk',sans-serif;color:var(--paper);background:radial-gradient(ellipse at 12% 0%,rgba(65,91,132,.24),transparent 38rem),radial-gradient(ellipse at 88% 22%,rgba(190,242,100,.07),transparent 32rem),#080d17!important;min-height:100vh}
 body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.18;background-image:radial-gradient(#a8bad0 .65px,transparent .65px);background-size:24px 24px;mask-image:linear-gradient(to bottom,black,transparent 78%)}
@@ -127,6 +126,7 @@ html:not(.dark) body{background:#e9edf2!important;color:#152033!important}html:n
                 <div id="color-selector" class="absolute right-0 mt-2 w-48 p-2 bg-white dark:bg-gray-700 rounded-lg shadow-xl hidden flex-col space-y-2">
                     <span class="text-xs font-semibold uppercase text-gray-500 dark:text-gray-400 px-2 pt-1">Primary Color</span>
                     <div class="grid grid-cols-4 gap-2 p-2">
+                        <button type="button" class="w-8 h-8 rounded-full hover:ring-2 ring-lime-300 transition" style="background:#bef264" onclick="setColor('signal')" aria-label="Signal lime"></button>
                         <button class="w-8 h-8 rounded-full bg-emerald-500 hover:ring-2 ring-emerald-300 transition" onclick="setColor('emerald')"></button>
                         <button class="w-8 h-8 rounded-full bg-blue-500 hover:ring-2 ring-blue-300 transition" onclick="setColor('blue')"></button>
                         <button class="w-8 h-8 rounded-full bg-purple-500 hover:ring-2 ring-purple-300 transition" onclick="setColor('purple')"></button>
@@ -239,7 +239,8 @@ html:not(.dark) body{background:#e9edf2!important;color:#152033!important}html:n
 
         // --- 4. Theming (Day/Night & Color) ---
 
-        const colors = {\n            'signal': { '50':'244 255 220', '400':'190 242 100', '500':'163 218 70', '600':'119 164 43', '700':'84 120 30' },
+        const colors = {
+            'signal': { '50':'244 255 220', '400':'190 242 100', '500':'163 218 70', '600':'119 164 43', '700':'84 120 30' },
             'emerald': { '50': '204 250 241', '400': '52 211 153', '500': '16 185 129', '600': '5 150 105', '700': '4 120 87' },
             'blue': { '50': '219 234 254', '400': '96 165 250', '500': '59 130 246', '600': '37 99 235', '700': '29 78 216' },
             'purple': { '50': '237 233 254', '400': '167 139 250', '500': '139 92 246', '600': '109 40 217', '700': '91 33 182' },
@@ -279,8 +280,8 @@ html:not(.dark) body{background:#e9edf2!important;color:#152033!important}html:n
             if (savedColor && colors[savedColor]) {
                 setColor(savedColor);
             } else {
-                // Default to emerald if no preference
-                setColor('emerald');
+                // Default to the archive's signal-lime accent
+                setColor('signal');
             }
 
             // Load Theme Preference
