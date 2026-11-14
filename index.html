@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Source347 Landing Pages</title>
+    <title>Source347 — Orbital Archive</title>
     <!-- Tailwind CSS CDN --><script src="https://cdn.tailwindcss.com"></script>
     <!-- Inter Font --><link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <style>
@@ -94,13 +94,30 @@
             background-color: yellow;
             position: absolute;
         }
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+:root{--c-primary-50:244 255 220;--c-primary-100:226 255 173;--c-primary-200:207 250 130;--c-primary-400:190 242 100;--c-primary-500:163 218 70;--c-primary-600:119 164 43;--c-primary-700:84 120 30;--line:#293950;--muted:#8d9bb0;--paper:#e8eef6;--signal:#bef264}
+*{box-sizing:border-box}body{font-family:'Space Grotesk',sans-serif;color:var(--paper);background:radial-gradient(ellipse at 12% 0%,rgba(65,91,132,.24),transparent 38rem),radial-gradient(ellipse at 88% 22%,rgba(190,242,100,.07),transparent 32rem),#080d17!important;min-height:100vh}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.18;background-image:radial-gradient(#a8bad0 .65px,transparent .65px);background-size:24px 24px;mask-image:linear-gradient(to bottom,black,transparent 78%)}
+header,main,#custom-modal{position:relative;z-index:1}header{background:rgba(12,20,34,.86)!important;border:1px solid var(--line);border-radius:18px!important;box-shadow:0 18px 60px rgba(0,0,0,.28)!important;backdrop-filter:blur(18px)}
+h1,h2,h3{letter-spacing:-.045em}h1{color:var(--paper)!important}.text-primary-600,.dark .text-primary-400{color:var(--signal)!important}.border-gray-200,.dark .border-gray-700{border-color:var(--line)!important}
+#color-toggle-btn,#theme-toggle-btn{background:#17243a!important;border:1px solid var(--line)}#color-selector{background:#111d30!important;border:1px solid var(--line)}#color-selector span{color:var(--muted)!important}
+main{max-width:1280px!important}.collection-intro{margin-bottom:1.6rem}.eyebrow,.section-kicker{font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:.13em;font-size:.67rem}.eyebrow{color:var(--signal)}
+.collection-title{font-size:clamp(2rem,4vw,3.35rem);line-height:1.02;margin:.55rem 0 .8rem}.collection-copy{color:var(--muted);max-width:48rem;line-height:1.7}
+#links-container{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.4rem}.category-panel{min-width:0;padding:1.15rem;background:linear-gradient(145deg,rgba(20,34,56,.94),rgba(13,23,39,.94));border:1px solid var(--line);border-radius:15px;box-shadow:0 12px 34px rgba(0,0,0,.14)}
+.category-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-bottom:.85rem;margin-bottom:.75rem;border-bottom:1px solid var(--line)}.category-head h3{color:var(--paper);font-size:1.02rem;font-weight:600;margin:0}.category-count{color:var(--signal);font:.68rem 'DM Mono',monospace;white-space:nowrap}
+.category-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.55rem}.project-link{display:flex;align-items:center;justify-content:space-between;gap:.6rem;min-height:43px;padding:.7rem .75rem;color:#dce6f2;text-decoration:none;font-size:.84rem;font-weight:500;background:rgba(255,255,255,.025);border:1px solid rgba(141,155,176,.16);border-radius:9px;transition:transform .18s,border-color .18s,background .18s}
+.project-link:after{content:"↗";color:var(--signal);font:.8rem 'DM Mono',monospace;opacity:.65}.project-link:hover{transform:translateY(-2px);border-color:rgba(190,242,100,.55);background:rgba(190,242,100,.07);color:#fff}
+.game-panel{background:linear-gradient(145deg,rgba(20,34,56,.96),rgba(13,23,39,.96))!important;border:1px solid var(--line);border-radius:15px!important;box-shadow:0 12px 34px rgba(0,0,0,.2)!important}#gameCanvas{border:1px solid #34445b!important;background:#080f1c!important}#game-score{color:var(--signal)!important}#start-game-btn{background:var(--signal)!important;color:#17210c!important;border-radius:8px!important}#game-message{color:#f4b86a!important}#custom-modal>div{background:#111d30!important;border:1px solid var(--line)}
+.dark .text-gray-500,.dark .text-gray-400{color:var(--muted)!important}
+@media(max-width:760px){#links-container{grid-template-columns:1fr}.category-links{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:420px){.category-links{grid-template-columns:1fr}}
+html:not(.dark) body{background:#e9edf2!important;color:#152033!important}html:not(.dark) header,html:not(.dark) .category-panel,html:not(.dark) .game-panel{background:#f8fafc!important;color:#152033!important}html:not(.dark) .category-head h3,html:not(.dark) .project-link{color:#18263a}html:not(.dark) .project-link{background:#fff;border-color:#d7dee8}html:not(.dark) .collection-copy{color:#526176}
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-500 min-h-screen flex flex-col items-center">
 
     <!-- Header and Controls --><header class="w-full max-w-6xl p-4 sm:p-6 flex flex-col sm:flex-row justify-between items-center bg-white dark:bg-gray-800 shadow-lg rounded-xl mt-4 z-10">
         <h1 class="text-3xl font-extrabold text-primary-600 dark:text-primary-400 mb-4 sm:mb-0">
-            Source347 Nexus
+            Source347 / Orbital Archive
         </h1>
         <div class="flex space-x-4 items-center">
             <!-- Color Selector Toggle --><div class="relative group">
@@ -131,12 +148,13 @@
 
     <main class="w-full max-w-6xl p-4 sm:p-6 flex flex-col md:flex-row gap-6 mt-6">
 
-        <!-- Column 1: Landing Page Links --><section class="md:w-3/5">
-            <h2 class="text-2xl font-bold mb-4 border-b pb-2 text-primary-600 dark:text-primary-400 border-gray-200 dark:border-gray-700">
-                Landing Pages (27 Links)
-            </h2>
-            <div id="links-container" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-                <!-- Buttons will be injected here by JavaScript --></div>
+        <!-- Column 1: Landing Page Links --><section class="w-full">
+            <div class="collection-intro">
+                <div class="eyebrow">SOURCE347 // PROJECT INDEX — 27 DESTINATIONS</div>
+                <h2 class="collection-title">A small universe of useful things.</h2>
+                <p class="collection-copy">Tools, experiments, earning platforms and interactive projects — built and collected under one signal. Pick a sector and explore.</p>
+            </div>
+            <div id="links-container" aria-label="Project categories"></div>
         </section>
 
         <!-- Column 2: JavaScript Game --><section class="md:w-2/5 flex flex-col">
@@ -170,35 +188,14 @@
 
 
     <script>
-        // --- 1. Data Setup ---
-        const landingPages = [
-            { name: "Source347", url: "https://source347.github.io/source347/" },
-            { name: "Publish0x", url: "https://source347.github.io/publish0x/" },
-            { name: "Pawns", url: "https://source347.github.io/pawns/" },
-            { name: "EasyHits4U", url: "https://source347.github.io/easyhits4u/" },
-            { name: "Fun", url: "https://source347.github.io/fun/" },
-            { name: "API", url: "https://source347.github.io/api/" },
-            { name: "Game 1", url: "https://source347.github.io/game1/" },
-            { name: "List", url: "https://source347.github.io/list/" },
-            { name: "Utility", url: "https://source347.github.io/utility/" },
-            { name: "Hash", url: "https://source347.github.io/hash/" },
-            { name: "Adbtc GPT", url: "https://source347.github.io/adbtc-gpt/" },
-            { name: "Adbtc Gem", url: "https://source347.github.io/adbtc-gem/" },
-            { name: "PTC", url: "https://source347.github.io/ptc/" },
-            { name: "VIS", url: "https://source347.github.io/vis/" },
-            { name: "Toolbox", url: "https://source347.github.io/toolbox-generated-by-gemini/" },
-            { name: "Compact Linkbox", url: "https://source347.github.io/compact-linkbox-generated-by-ai-studio/" },
-            { name: "Medical Calculators", url: "https://source347.github.io/medical-calculators/" },
-            { name: "Keep Time", url: "https://source347.github.io/keep-time/" },
-            { name: "Chronocraft", url: "https://source347.github.io/chronocraft/" },
-            { name: "487 Income Streams", url: "https://source347.github.io/487-income-streams/" },
-            { name: "Match 3", url: "https://source347.github.io/match-3/" },
-            { name: "Enzyme Kinetics Lab", url: "https://source347.github.io/interactive-enzyme-kinetics-by-google-gemini/" },
-            { name: "Population Genetics Lab", url: "https://source347.github.io/interactive-population-genetics-by-google-gemini/" },
-            { name: "Homeostasis & Acid-Base Lab", url: "https://source347.github.io/interactive-homeostasis-and-acid-base-lab-by-google-gemini/" },
-            { name: "Acid-Base Detective", url: "https://source347.github.io/interactive-acid-base-detective-by-google-gemini/" },
-            { name: "Link in Bio", url: "https://source347.github.io/linkinbio/" },
-            { name: "The Big Four", url: "https://source347.github.io/thebigfour/" }
+        // --- 1. Curated project directory ---
+        const categories = [
+          {name:"Directories & discovery",code:"SECTOR 01",items:[{name:"Source347",url:"https://source347.github.io/source347/"},{name:"List",url:"https://source347.github.io/list/"},{name:"Compact Linkbox",url:"https://source347.github.io/compact-linkbox-generated-by-ai-studio/"},{name:"Link in Bio",url:"https://source347.github.io/linkinbio/"},{name:"Toolbox",url:"https://source347.github.io/toolbox-generated-by-gemini/"}]},
+          {name:"Tools & productivity",code:"SECTOR 02",items:[{name:"Utility",url:"https://source347.github.io/utility/"},{name:"Hash",url:"https://source347.github.io/hash/"},{name:"API",url:"https://source347.github.io/api/"},{name:"Keep Time",url:"https://source347.github.io/keep-time/"},{name:"Chronocraft",url:"https://source347.github.io/chronocraft/"},{name:"Medical Calculators",url:"https://source347.github.io/medical-calculators/"}]},
+          {name:"Rewards & earning",code:"SECTOR 03",items:[{name:"Pawns",url:"https://source347.github.io/pawns/"},{name:"EasyHits4U",url:"https://source347.github.io/easyhits4u/"},{name:"Publish0x",url:"https://source347.github.io/publish0x/"},{name:"Adbtc GPT",url:"https://source347.github.io/adbtc-gpt/"},{name:"Adbtc Gem",url:"https://source347.github.io/adbtc-gem/"},{name:"PTC",url:"https://source347.github.io/ptc/"},{name:"487 Income Streams",url:"https://source347.github.io/487-income-streams/"}]},
+          {name:"Games & interactive",code:"SECTOR 04",items:[{name:"Fun",url:"https://source347.github.io/fun/"},{name:"Game 1",url:"https://source347.github.io/game1/"},{name:"Match 3",url:"https://source347.github.io/match-3/"}]},
+          {name:"Science & learning",code:"SECTOR 05",items:[{name:"Enzyme Kinetics Lab",url:"https://source347.github.io/interactive-enzyme-kinetics-by-google-gemini/"},{name:"Population Genetics Lab",url:"https://source347.github.io/interactive-population-genetics-by-google-gemini/"},{name:"Homeostasis & Acid-Base Lab",url:"https://source347.github.io/interactive-homeostasis-and-acid-base-lab-by-google-gemini/"},{name:"Acid-Base Detective",url:"https://source347.github.io/interactive-acid-base-detective-by-google-gemini/"}]},
+          {name:"Experiments & showcases",code:"SECTOR 06",items:[{name:"VIS",url:"https://source347.github.io/vis/"},{name:"The Big Four",url:"https://source347.github.io/thebigfour/"}]}
         ];
 
         // --- 2. Utility Functions ---
@@ -225,21 +222,24 @@
 
         // --- 3. Landing Page Rendering ---
         function renderLandingPages() {
-            const container = document.getElementById('links-container');
-            container.innerHTML = ''; // Clear existing content
-            landingPages.forEach(page => {
-                const link = document.createElement('a');
-                link.href = page.url;
-                link.target = "_blank"; // Open in new tab
-                link.className = 'btn-primary text-white font-bold py-3 px-4 rounded-xl text-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus:ring-4 ring-primary-500/50';
-                link.textContent = page.name;
-                container.appendChild(link);
+            const container=document.getElementById('links-container');
+            container.innerHTML='';
+            categories.forEach(category=>{
+                const panel=document.createElement('section');panel.className='category-panel';
+                const head=document.createElement('div');head.className='category-head';
+                const title=document.createElement('div');
+                const kicker=document.createElement('div');kicker.className='section-kicker';kicker.style.color='var(--muted)';kicker.textContent=category.code;
+                const heading=document.createElement('h3');heading.textContent=category.name;title.append(kicker,heading);
+                const count=document.createElement('span');count.className='category-count';count.textContent=String(category.items.length).padStart(2,'0')+' / NODES';head.append(title,count);
+                const links=document.createElement('div');links.className='category-links';
+                category.items.forEach(page=>{const link=document.createElement('a');link.href=page.url;link.target='_blank';link.rel='noopener noreferrer';link.className='project-link';link.textContent=page.name;links.appendChild(link);});
+                panel.append(head,links);container.appendChild(panel);
             });
         }
 
         // --- 4. Theming (Day/Night & Color) ---
 
-        const colors = {
+        const colors = {\n            'signal': { '50':'244 255 220', '400':'190 242 100', '500':'163 218 70', '600':'119 164 43', '700':'84 120 30' },
             'emerald': { '50': '204 250 241', '400': '52 211 153', '500': '16 185 129', '600': '5 150 105', '700': '4 120 87' },
             'blue': { '50': '219 234 254', '400': '96 165 250', '500': '59 130 246', '600': '37 99 235', '700': '29 78 216' },
             'purple': { '50': '237 233 254', '400': '167 139 250', '500': '139 92 246', '600': '109 40 217', '700': '91 33 182' },
